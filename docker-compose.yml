@@ -1,0 +1,18 @@
+version: '3'
+services:
+  antenna:
+    image: elixir:1.11
+    working_dir: /usr/src/antenna
+    command: sleep infinity
+    volumes:
+      - ./docker/root:/root
+      - ./receiver:/usr/src/antenna
+
+  receiver:
+    image: node:15
+    working_dir: /usr/src/receiver
+    command: sleep infinity
+    volumes:
+      - ./receiver:/usr/src/receiver
+    depends_on:
+      - antenna
