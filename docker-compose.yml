@@ -14,5 +14,7 @@ services:
     command: sleep infinity
     volumes:
       - ./receiver:/usr/src/receiver
+    ports:
+      - "8080:8080"
     depends_on:
       - antenna
